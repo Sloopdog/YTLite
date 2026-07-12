@@ -6,277 +6,275 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		16921C2F17FFB5FD4F884642 /* OptionCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB04511438330143F13FF95E /* OptionCatalog.swift */; };
+		2B2CA4CB0E7814C8858BD6B5 /* LaunchAtLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428AE1AB79588EA0D08E0DC9 /* LaunchAtLoginManager.swift */; };
+		53782C0E53AF2A2243AC9447 /* ToolManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16F4D644B11FC8A02077679 /* ToolManager.swift */; };
+		682C61ADD743984F87FD1647 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66320DDB38D7D31A113CD802 /* AppModel.swift */; };
+		6A4461EC877D223183BB33FA /* AdvancedOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D9F86ABFC4483727AFA493 /* AdvancedOptionsView.swift */; };
+		83EC39BA86F4C598ED6EE3D2 /* ArgumentCompiler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737DFD2A2A57ADB62C8E23F7 /* ArgumentCompiler.swift */; };
+		8617EA85795AAC339F9FB4F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F622E279852C1DB4EC3A893 /* Assets.xcassets */; };
+		9E1E80C9701CFDB0F9CA9C53 /* DownloadRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A47BA4C4A7EBD84011BB57 /* DownloadRunner.swift */; };
+		A64911CDB2125E1B00CC7FC6 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626E5B2FC4A52E1208C9F65C /* Models.swift */; };
+		AD5549928C5AF023FB01CEE7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94C8E7DF9D976E59540A9D0 /* ContentView.swift */; };
+		C433BBDE4EAD9EB6EA64D5C9 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EE299BED17C029A2DCA0EC /* Components.swift */; };
+		C71629093C303AF42592CD02 /* ChannelSubscriptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EECF3C664FDD5BCC2D1194 /* ChannelSubscriptionsView.swift */; };
+		CCB07E1402239009D8F3D7B8 /* ytliteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E207B7591617C7C70043BDA /* ytliteTests.swift */; };
+		CECD18E33CC26C8FBE1FEF12 /* PresetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FB4950142E4E961545C893 /* PresetsView.swift */; };
+		CFC438D10CB0682DC188F13D /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64279DB2C69A29D508DBE660 /* DownloadView.swift */; };
+		D93C24A4243E7B6F97FE4351 /* ChannelMonitorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917FA5B35285E6618BC474C9 /* ChannelMonitorService.swift */; };
+		DD48B3D7C260848833042C07 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430633CA094526D92D64EA8C /* SettingsView.swift */; };
+		E1355C872767B433EE4CECC8 /* OptionCatalog.json in Resources */ = {isa = PBXBuildFile; fileRef = A74181DE9C2179EB24DE802F /* OptionCatalog.json */; };
+		F5E7AB517E21103E436DF03F /* ytliteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14F8E752550786EAA9BF8D3 /* ytliteApp.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
-		A973C9312FF56222002786F3 /* PBXContainerItemProxy */ = {
+		EDD6A3D248A97E3283F81E3D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = A973C91B2FF56221002786F3 /* Project object */;
+			containerPortal = 58F5E9F68005182EB9A8E5C7 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = A973C9222FF56221002786F3;
-			remoteInfo = ytlite;
-		};
-		A973C93B2FF56222002786F3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A973C91B2FF56221002786F3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A973C9222FF56221002786F3;
-			remoteInfo = ytlite;
+			remoteGlobalIDString = E5A6BFBC1A4F74FC530383E8;
+			remoteInfo = YTLite;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A973C9232FF56221002786F3 /* ytlite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ytlite.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A973C9302FF56222002786F3 /* ytliteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ytliteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A973C93A2FF56222002786F3 /* ytliteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ytliteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		21966BB589026EA2D1C2D9C1 /* YTLiteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YTLiteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		34A47BA4C4A7EBD84011BB57 /* DownloadRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadRunner.swift; sourceTree = "<group>"; };
+		41D9F86ABFC4483727AFA493 /* AdvancedOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedOptionsView.swift; sourceTree = "<group>"; };
+		428AE1AB79588EA0D08E0DC9 /* LaunchAtLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAtLoginManager.swift; sourceTree = "<group>"; };
+		430633CA094526D92D64EA8C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		44EBD8B1BFEA37CB163553EB /* YTLite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YTLite.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		626E5B2FC4A52E1208C9F65C /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		64279DB2C69A29D508DBE660 /* DownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
+		66320DDB38D7D31A113CD802 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		737DFD2A2A57ADB62C8E23F7 /* ArgumentCompiler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArgumentCompiler.swift; sourceTree = "<group>"; };
+		8E207B7591617C7C70043BDA /* ytliteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ytliteTests.swift; sourceTree = "<group>"; };
+		917FA5B35285E6618BC474C9 /* ChannelMonitorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelMonitorService.swift; sourceTree = "<group>"; };
+		9F622E279852C1DB4EC3A893 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A74181DE9C2179EB24DE802F /* OptionCatalog.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = OptionCatalog.json; sourceTree = "<group>"; };
+		AB04511438330143F13FF95E /* OptionCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionCatalog.swift; sourceTree = "<group>"; };
+		B0EECF3C664FDD5BCC2D1194 /* ChannelSubscriptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelSubscriptionsView.swift; sourceTree = "<group>"; };
+		B2FB4950142E4E961545C893 /* PresetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetsView.swift; sourceTree = "<group>"; };
+		D14F8E752550786EAA9BF8D3 /* ytliteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ytliteApp.swift; sourceTree = "<group>"; };
+		D16F4D644B11FC8A02077679 /* ToolManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolManager.swift; sourceTree = "<group>"; };
+		D94C8E7DF9D976E59540A9D0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E1EE299BED17C029A2DCA0EC /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		A973C9252FF56222002786F3 /* ytlite */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = ytlite;
+/* Begin PBXGroup section */
+		0F726BC170FB7B5534AB7346 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A74181DE9C2179EB24DE802F /* OptionCatalog.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
-		A973C9332FF56222002786F3 /* ytliteTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
+		9205D86B24AD8EF1D4BB58CA /* ytliteTests */ = {
+			isa = PBXGroup;
+			children = (
+				8E207B7591617C7C70043BDA /* ytliteTests.swift */,
+			);
 			path = ytliteTests;
 			sourceTree = "<group>";
 		};
-		A973C93D2FF56222002786F3 /* ytliteUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = ytliteUITests;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		A973C9202FF56221002786F3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A973C92D2FF56222002786F3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A973C9372FF56222002786F3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		A973C91A2FF56221002786F3 = {
+		94BF2DF654B20D1AFAFA461D = {
 			isa = PBXGroup;
 			children = (
-				A973C9252FF56222002786F3 /* ytlite */,
-				A973C9332FF56222002786F3 /* ytliteTests */,
-				A973C93D2FF56222002786F3 /* ytliteUITests */,
-				A973C9242FF56221002786F3 /* Products */,
+				F778A5F8DB86A8A8CBBC3E8E /* ytlite */,
+				9205D86B24AD8EF1D4BB58CA /* ytliteTests */,
+				DF27C9EE4607BE8FB57E954A /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		A973C9242FF56221002786F3 /* Products */ = {
+		DF27C9EE4607BE8FB57E954A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A973C9232FF56221002786F3 /* ytlite.app */,
-				A973C9302FF56222002786F3 /* ytliteTests.xctest */,
-				A973C93A2FF56222002786F3 /* ytliteUITests.xctest */,
+				44EBD8B1BFEA37CB163553EB /* YTLite.app */,
+				21966BB589026EA2D1C2D9C1 /* YTLiteTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		F778A5F8DB86A8A8CBBC3E8E /* ytlite */ = {
+			isa = PBXGroup;
+			children = (
+				41D9F86ABFC4483727AFA493 /* AdvancedOptionsView.swift */,
+				66320DDB38D7D31A113CD802 /* AppModel.swift */,
+				737DFD2A2A57ADB62C8E23F7 /* ArgumentCompiler.swift */,
+				9F622E279852C1DB4EC3A893 /* Assets.xcassets */,
+				917FA5B35285E6618BC474C9 /* ChannelMonitorService.swift */,
+				B0EECF3C664FDD5BCC2D1194 /* ChannelSubscriptionsView.swift */,
+				E1EE299BED17C029A2DCA0EC /* Components.swift */,
+				D94C8E7DF9D976E59540A9D0 /* ContentView.swift */,
+				34A47BA4C4A7EBD84011BB57 /* DownloadRunner.swift */,
+				64279DB2C69A29D508DBE660 /* DownloadView.swift */,
+				428AE1AB79588EA0D08E0DC9 /* LaunchAtLoginManager.swift */,
+				626E5B2FC4A52E1208C9F65C /* Models.swift */,
+				AB04511438330143F13FF95E /* OptionCatalog.swift */,
+				B2FB4950142E4E961545C893 /* PresetsView.swift */,
+				430633CA094526D92D64EA8C /* SettingsView.swift */,
+				D16F4D644B11FC8A02077679 /* ToolManager.swift */,
+				D14F8E752550786EAA9BF8D3 /* ytliteApp.swift */,
+				0F726BC170FB7B5534AB7346 /* Resources */,
+			);
+			path = ytlite;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A973C9222FF56221002786F3 /* ytlite */ = {
+		9E238D8CC2B4C0B6B33D568F /* YTLiteTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A973C9442FF56222002786F3 /* Build configuration list for PBXNativeTarget "ytlite" */;
+			buildConfigurationList = 52B51C6D842784DA820C4AB8 /* Build configuration list for PBXNativeTarget "YTLiteTests" */;
 			buildPhases = (
-				A973C91F2FF56221002786F3 /* Sources */,
-				A973C9202FF56221002786F3 /* Frameworks */,
-				A973C9212FF56221002786F3 /* Resources */,
+				CFAB9BE1701167608DDC7F69 /* Sources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				327669DCB82AC634A6C29073 /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				A973C9252FF56222002786F3 /* ytlite */,
-			);
-			name = ytlite;
+			name = YTLiteTests;
 			packageProductDependencies = (
 			);
-			productName = ytlite;
-			productReference = A973C9232FF56221002786F3 /* ytlite.app */;
-			productType = "com.apple.product-type.application";
-		};
-		A973C92F2FF56222002786F3 /* ytliteTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A973C9472FF56222002786F3 /* Build configuration list for PBXNativeTarget "ytliteTests" */;
-			buildPhases = (
-				A973C92C2FF56222002786F3 /* Sources */,
-				A973C92D2FF56222002786F3 /* Frameworks */,
-				A973C92E2FF56222002786F3 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A973C9322FF56222002786F3 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				A973C9332FF56222002786F3 /* ytliteTests */,
-			);
-			name = ytliteTests;
-			packageProductDependencies = (
-			);
-			productName = ytliteTests;
-			productReference = A973C9302FF56222002786F3 /* ytliteTests.xctest */;
+			productName = YTLiteTests;
+			productReference = 21966BB589026EA2D1C2D9C1 /* YTLiteTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		A973C9392FF56222002786F3 /* ytliteUITests */ = {
+		E5A6BFBC1A4F74FC530383E8 /* YTLite */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A973C94A2FF56222002786F3 /* Build configuration list for PBXNativeTarget "ytliteUITests" */;
+			buildConfigurationList = 9A9061AEF9FD96BDF6E6E84F /* Build configuration list for PBXNativeTarget "YTLite" */;
 			buildPhases = (
-				A973C9362FF56222002786F3 /* Sources */,
-				A973C9372FF56222002786F3 /* Frameworks */,
-				A973C9382FF56222002786F3 /* Resources */,
+				78954CDE8E4F12D4BE9621FC /* Sources */,
+				48DEAB09EB9D6C006AA105BE /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				A973C93C2FF56222002786F3 /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				A973C93D2FF56222002786F3 /* ytliteUITests */,
-			);
-			name = ytliteUITests;
+			name = YTLite;
 			packageProductDependencies = (
 			);
-			productName = ytliteUITests;
-			productReference = A973C93A2FF56222002786F3 /* ytliteUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
+			productName = YTLite;
+			productReference = 44EBD8B1BFEA37CB163553EB /* YTLite.app */;
+			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		A973C91B2FF56221002786F3 /* Project object */ = {
+		58F5E9F68005182EB9A8E5C7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 2620;
-				LastUpgradeCheck = 2620;
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
 				TargetAttributes = {
-					A973C9222FF56221002786F3 = {
-						CreatedOnToolsVersion = 26.2;
-					};
-					A973C92F2FF56222002786F3 = {
-						CreatedOnToolsVersion = 26.2;
-						TestTargetID = A973C9222FF56221002786F3;
-					};
-					A973C9392FF56222002786F3 = {
-						CreatedOnToolsVersion = 26.2;
-						TestTargetID = A973C9222FF56221002786F3;
+					E5A6BFBC1A4F74FC530383E8 = {
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = A973C91E2FF56221002786F3 /* Build configuration list for PBXProject "ytlite" */;
+			buildConfigurationList = 1F473F463797279AAE0EC02C /* Build configuration list for PBXProject "YTLite" */;
+			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
+				en,
 			);
-			mainGroup = A973C91A2FF56221002786F3;
+			mainGroup = 94BF2DF654B20D1AFAFA461D;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = A973C9242FF56221002786F3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A973C9222FF56221002786F3 /* ytlite */,
-				A973C92F2FF56222002786F3 /* ytliteTests */,
-				A973C9392FF56222002786F3 /* ytliteUITests */,
+				E5A6BFBC1A4F74FC530383E8 /* YTLite */,
+				9E238D8CC2B4C0B6B33D568F /* YTLiteTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		A973C9212FF56221002786F3 /* Resources */ = {
+		48DEAB09EB9D6C006AA105BE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A973C92E2FF56222002786F3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A973C9382FF56222002786F3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				8617EA85795AAC339F9FB4F4 /* Assets.xcassets in Resources */,
+				E1355C872767B433EE4CECC8 /* OptionCatalog.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		A973C91F2FF56221002786F3 /* Sources */ = {
+		78954CDE8E4F12D4BE9621FC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A4461EC877D223183BB33FA /* AdvancedOptionsView.swift in Sources */,
+				682C61ADD743984F87FD1647 /* AppModel.swift in Sources */,
+				83EC39BA86F4C598ED6EE3D2 /* ArgumentCompiler.swift in Sources */,
+				D93C24A4243E7B6F97FE4351 /* ChannelMonitorService.swift in Sources */,
+				C71629093C303AF42592CD02 /* ChannelSubscriptionsView.swift in Sources */,
+				C433BBDE4EAD9EB6EA64D5C9 /* Components.swift in Sources */,
+				AD5549928C5AF023FB01CEE7 /* ContentView.swift in Sources */,
+				9E1E80C9701CFDB0F9CA9C53 /* DownloadRunner.swift in Sources */,
+				CFC438D10CB0682DC188F13D /* DownloadView.swift in Sources */,
+				2B2CA4CB0E7814C8858BD6B5 /* LaunchAtLoginManager.swift in Sources */,
+				A64911CDB2125E1B00CC7FC6 /* Models.swift in Sources */,
+				16921C2F17FFB5FD4F884642 /* OptionCatalog.swift in Sources */,
+				CECD18E33CC26C8FBE1FEF12 /* PresetsView.swift in Sources */,
+				DD48B3D7C260848833042C07 /* SettingsView.swift in Sources */,
+				53782C0E53AF2A2243AC9447 /* ToolManager.swift in Sources */,
+				F5E7AB517E21103E436DF03F /* ytliteApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A973C92C2FF56222002786F3 /* Sources */ = {
+		CFAB9BE1701167608DDC7F69 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A973C9362FF56222002786F3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				CCB07E1402239009D8F3D7B8 /* ytliteTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		A973C9322FF56222002786F3 /* PBXTargetDependency */ = {
+		327669DCB82AC634A6C29073 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A973C9222FF56221002786F3 /* ytlite */;
-			targetProxy = A973C9312FF56222002786F3 /* PBXContainerItemProxy */;
-		};
-		A973C93C2FF56222002786F3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A973C9222FF56221002786F3 /* ytlite */;
-			targetProxy = A973C93B2FF56222002786F3 /* PBXContainerItemProxy */;
+			target = E5A6BFBC1A4F74FC530383E8 /* YTLite */;
+			targetProxy = EDD6A3D248A97E3283F81E3D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		A973C9422FF56222002786F3 /* Debug */ = {
+		005387FCCB187F57D14D3D68 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.michaelsloop.ytlite.tests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YTLite.app/Contents/MacOS/YTLite";
+			};
+			name = Debug;
+		};
+		2984E6F09C3FB55FF17AD28A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -306,14 +304,13 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
 					"$(inherited)",
+					"DEBUG=1",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -321,25 +318,44 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
-		A973C9432FF56222002786F3 /* Release */ = {
+		4F8934307F17B9FC2ABAB6A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.michaelsloop.ytlite.tests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YTLite.app/Contents/MacOS/YTLite";
+			};
+			name = Release;
+		};
+		5DB898196F6C5806585E0A9C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -369,8 +385,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -378,198 +393,101 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				SDKROOT = iphoneos;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
-				VALIDATE_PRODUCT = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
-		A973C9452FF56222002786F3 /* Debug */ = {
+		AB0A17054926F34771EBE81A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				ENABLE_PREVIEWS = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
+				ENABLE_APP_SANDBOX = NO;
+				ENABLE_HARDENED_RUNTIME = NO;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_CFBundleDisplayName = YTLite;
+				INFOPLIST_KEY_CFBundleName = YTLite;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Built for personal, lawful media downloads.";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
-					"@executable_path/Frameworks",
+					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Michael-Sloop.ytlite";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				MARKETING_VERSION = 1.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.michaelsloop.ytlite;
+				PRODUCT_NAME = YTLite;
+				SDKROOT = macosx;
 			};
-			name = Debug;
+			name = Release;
 		};
-		A973C9462FF56222002786F3 /* Release */ = {
+		DC42C127CCD80315396CC26D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				ENABLE_PREVIEWS = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
+				ENABLE_APP_SANDBOX = NO;
+				ENABLE_HARDENED_RUNTIME = NO;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_CFBundleDisplayName = YTLite;
+				INFOPLIST_KEY_CFBundleName = YTLite;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Built for personal, lawful media downloads.";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
-					"@executable_path/Frameworks",
+					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Michael-Sloop.ytlite";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		A973C9482FF56222002786F3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Michael-Sloop.ytliteTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ytlite.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ytlite";
+				MARKETING_VERSION = 1.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.michaelsloop.ytlite;
+				PRODUCT_NAME = YTLite;
+				SDKROOT = macosx;
 			};
 			name = Debug;
-		};
-		A973C9492FF56222002786F3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Michael-Sloop.ytliteTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ytlite.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ytlite";
-			};
-			name = Release;
-		};
-		A973C94B2FF56222002786F3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Michael-Sloop.ytliteUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = ytlite;
-			};
-			name = Debug;
-		};
-		A973C94C2FF56222002786F3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Michael-Sloop.ytliteUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = ytlite;
-			};
-			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A973C91E2FF56221002786F3 /* Build configuration list for PBXProject "ytlite" */ = {
+		1F473F463797279AAE0EC02C /* Build configuration list for PBXProject "YTLite" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A973C9422FF56222002786F3 /* Debug */,
-				A973C9432FF56222002786F3 /* Release */,
+				2984E6F09C3FB55FF17AD28A /* Debug */,
+				5DB898196F6C5806585E0A9C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
-		A973C9442FF56222002786F3 /* Build configuration list for PBXNativeTarget "ytlite" */ = {
+		52B51C6D842784DA820C4AB8 /* Build configuration list for PBXNativeTarget "YTLiteTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A973C9452FF56222002786F3 /* Debug */,
-				A973C9462FF56222002786F3 /* Release */,
+				005387FCCB187F57D14D3D68 /* Debug */,
+				4F8934307F17B9FC2ABAB6A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
-		A973C9472FF56222002786F3 /* Build configuration list for PBXNativeTarget "ytliteTests" */ = {
+		9A9061AEF9FD96BDF6E6E84F /* Build configuration list for PBXNativeTarget "YTLite" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A973C9482FF56222002786F3 /* Debug */,
-				A973C9492FF56222002786F3 /* Release */,
+				DC42C127CCD80315396CC26D /* Debug */,
+				AB0A17054926F34771EBE81A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A973C94A2FF56222002786F3 /* Build configuration list for PBXNativeTarget "ytliteUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A973C94B2FF56222002786F3 /* Debug */,
-				A973C94C2FF56222002786F3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = A973C91B2FF56221002786F3 /* Project object */;
+	rootObject = 58F5E9F68005182EB9A8E5C7 /* Project object */;
 }

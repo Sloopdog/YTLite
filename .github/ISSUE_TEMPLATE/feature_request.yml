@@ -1,0 +1,16 @@
+name: Feature request
+description: Suggest a user-focused improvement
+title: "[Feature]: "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: need
+    attributes:
+      label: What should become easier?
+      description: Describe the user need before the proposed control or implementation.
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: Suggested behavior

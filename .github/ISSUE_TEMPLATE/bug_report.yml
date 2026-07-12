@@ -1,0 +1,36 @@
+name: Bug report
+description: Report a reproducible YTLite problem
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Do not include cookies, credentials, or private URLs.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: YTLite version
+      placeholder: "1.1.0"
+    validations:
+      required: true
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version and Mac type
+      placeholder: "macOS 15.5, Apple silicon"
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant redacted logs

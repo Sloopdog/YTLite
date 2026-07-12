@@ -1,0 +1,58 @@
+name: YTLite
+
+options:
+  bundleIdPrefix: com.michaelsloop
+  deploymentTarget:
+    macOS: "14.0"
+  createIntermediateGroups: true
+
+settings:
+  base:
+    MACOSX_DEPLOYMENT_TARGET: "14.0"
+    SWIFT_VERSION: "5.0"
+    SWIFT_STRICT_CONCURRENCY: minimal
+
+targets:
+  YTLite:
+    type: application
+    platform: macOS
+    sources:
+      - path: ytlite
+        excludes:
+          - Resources
+          - Assets.xcassets
+      - path: ytlite/Resources
+        buildPhase: resources
+      - path: ytlite/Assets.xcassets
+        buildPhase: resources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.michaelsloop.ytlite
+        PRODUCT_NAME: YTLite
+        MARKETING_VERSION: 1.1.0
+        CURRENT_PROJECT_VERSION: 2
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: YTLite
+        INFOPLIST_KEY_CFBundleName: YTLite
+        INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.utilities
+        INFOPLIST_KEY_NSHumanReadableCopyright: "Built for personal, lawful media downloads."
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        ENABLE_APP_SANDBOX: NO
+        ENABLE_HARDENED_RUNTIME: NO
+        CODE_SIGN_STYLE: Automatic
+    scheme:
+      testTargets:
+        - YTLiteTests
+
+  YTLiteTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - path: ytliteTests
+    dependencies:
+      - target: YTLite
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.michaelsloop.ytlite.tests
+        GENERATE_INFOPLIST_FILE: YES
