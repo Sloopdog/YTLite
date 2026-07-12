@@ -7,7 +7,8 @@ YTLite is a native SwiftUI interface for [yt-dlp](https://github.com/yt-dlp/yt-d
 ## Highlights
 
 - Video, audio-only, and original-format downloads
-- Per-channel automatic monitoring with individual schedules, formats, quality, destination, and per-check limits
+- Per-channel automatic monitoring with individual schedules, formats, quality, and per-check limits
+- A dedicated folder for every channel inside the selected download destination
 - A safe first-run baseline: adding a channel does not download its back catalog
 - Seen-video history plus yt-dlp's download archive for duplicate protection
 - Optional Launch at Login for unattended monitoring
@@ -34,7 +35,9 @@ Requires macOS 14 Sonoma or newer.
 
 Open **Auto Channels**, paste a YouTube channel URL, and choose its schedule and format. A channel's `/videos` URL is recommended when you want regular uploads without its Shorts or Live tabs.
 
-On the first check, YTLite records the newest video IDs as its starting point. Future checks add only unseen uploads to Downloads. Enabling **Also download the newest video now** is the explicit exception. Monitoring runs while YTLite is open; closing its window leaves the app running, while **Quit YTLite** stops checks. Launch at Login is available in Settings.
+YTLite always converts a channel link to its `/videos` tab and accepts only individual 11-character YouTube video IDs from the result. On the first check, it records the newest video IDs as its starting point without downloading them. Future checks add only unseen uploads. Enabling **Also download the newest video now** is the explicit exception.
+
+Each subscription creates its own folder inside the download destination—for example, `Downloads/Drae`. Monitoring runs while YTLite is open; closing its window leaves the app running, while **Quit YTLite** stops checks. Launch at Login is available in Settings.
 
 ## Build from source
 

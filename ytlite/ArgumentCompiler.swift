@@ -146,11 +146,22 @@ enum ArgumentCompiler {
     private static func mediaArguments(_ settings: DownloadSettings) -> [String] {
         switch settings.mediaMode {
         case .video:
-            let format: String
+            let generalFormat: String
             if let height = settings.videoQuality.heightLimit {
-                format = "bv*[height<=\(height)]+ba/b[height<=\(height)]"
+                generalFormat = "bv*[height<=\(height)]+ba/b[height<=\(height)]"
             } else {
-                format = "bv*+ba/b"
+                generalFormat = "bv*+ba/b"
+            }
+
+            let format: String
+            if settings.videoContainer == .mp4 {
+                if let height = settings.videoQuality.heightLimit {
+                    format = "bv*[height<=\(height)][ext=mp4]+ba[ext=m4a]/b[height<=\(height)][ext=mp4]/\(generalFormat)"
+                } else {
+                    format = "bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4]/\(generalFormat)"
+                }
+            } else {
+                format = generalFormat
             }
 
             var result = ["--format", format]
@@ -159,7 +170,10 @@ enum ArgumentCompiler {
                 break
             case .mp4:
                 result += [
-                    "--format-sort", "vcodec:h264,acodec:aac,res,fps,hdr:12",
+                    // Resolution must be ranked before codec preference. The
+                    // previous codec-first order could choose a 360p H.264
+                    // stream over an available 1080p stream.
+                    "--format-sort", "res,fps,hdr:12,vcodec:h264,acodec:aac",
                     "--merge-output-format", "mp4",
                     "--remux-video", "mp4"
                 ]
@@ -167,7 +181,7 @@ enum ArgumentCompiler {
                 result += ["--merge-output-format", "mkv", "--remux-video", "mkv"]
             case .webm:
                 result += [
-                    "--format-sort", "vcodec:vp9,acodec:opus,res,fps",
+                    "--format-sort", "res,fps,hdr:12,vcodec:vp9,acodec:opus",
                     "--merge-output-format", "webm",
                     "--recode-video", "webm"
                 ]

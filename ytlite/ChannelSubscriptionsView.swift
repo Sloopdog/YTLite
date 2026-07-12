@@ -61,7 +61,7 @@ struct ChannelSubscriptionsView: View {
     private var addPanel: some View {
         Panel {
             VStack(alignment: .leading, spacing: 14) {
-                SectionTitle("Add a YouTube channel", detail: "The /videos page is best if you do not want Shorts or live streams", icon: "plus.circle.fill")
+                SectionTitle("Add a YouTube channel", detail: "YTLite watches only the channel's Videos tab", icon: "plus.circle.fill")
                 TextField("https://www.youtube.com/@channel/videos", text: $channelURL)
                     .textFieldStyle(.roundedBorder)
 
@@ -101,7 +101,7 @@ struct ChannelSubscriptionsView: View {
                             Picker("", selection: $videoContainer) {
                                 ForEach(VideoContainer.allCases) { Text($0.title).tag($0) }
                             }.labelsHidden()
-                            Text("Uses your current extras and saves to \(URL(fileURLWithPath: model.settings.outputDirectory).lastPathComponent)")
+                            Text("Creates a folder for this channel inside \(URL(fileURLWithPath: model.settings.outputDirectory).lastPathComponent)")
                                 .font(.caption).foregroundStyle(.secondary).gridCellColumns(2)
                         }
                     }
@@ -201,7 +201,8 @@ private struct ChannelSubscriptionCard: View {
 
                 HStack(spacing: 18) {
                     Label(formatDescription, systemImage: subscription.settings.mediaMode.icon)
-                    Label(URL(fileURLWithPath: subscription.settings.outputDirectory).lastPathComponent, systemImage: "folder")
+                    Label(subscription.settings.outputDirectory, systemImage: "folder")
+                        .lineLimit(1).truncationMode(.middle)
                     if let last = subscription.lastCheckedAt {
                         Label("Checked \(last.formatted(.relative(presentation: .named)))", systemImage: "clock")
                     }

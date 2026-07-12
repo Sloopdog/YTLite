@@ -47,7 +47,8 @@ final class AppModel: ObservableObject {
         // live only for the current app session.
         customArguments = ""
         presets = Self.restore([CustomPreset].self, key: Keys.presets) ?? []
-        channelSubscriptions = Self.restore([ChannelSubscription].self, key: Keys.channels) ?? []
+        let restoredChannels = Self.restore([ChannelSubscription].self, key: Keys.channels) ?? []
+        channelSubscriptions = Self.migratedChannelSubscriptions(restoredChannels)
 
         var restoredJobs = Self.restore([DownloadJob].self, key: Keys.jobs) ?? []
         for index in restoredJobs.indices where [.running, .postprocessing].contains(restoredJobs[index].state) {
@@ -63,6 +64,13 @@ final class AppModel: ObservableObject {
             catalogError = error.localizedDescription
         }
         launchAtLoginEnabled = LaunchAtLoginManager.isEnabled
+        for subscription in channelSubscriptions {
+            try? FileManager.default.createDirectory(
+                at: URL(fileURLWithPath: subscription.settings.outputDirectory, isDirectory: true),
+                withIntermediateDirectories: true
+            )
+        }
+        persist(channelSubscriptions, key: Keys.channels)
         monitorTimer = Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { [weak self] _ in
             Task { @MainActor in self?.checkDueChannels() }
         }
@@ -414,6 +422,20 @@ final class AppModel: ObservableObject {
             switch result {
             case let .success(probe):
                 channelSubscriptions[index].displayName = probe.channelName
+                channelSubscriptions[index].settings.outputDirectory = ChannelOutputFolder.path(
+                    baseDirectory: channelSubscriptions[index].settings.outputDirectory,
+                    channelName: probe.channelName
+                )
+                do {
+                    try FileManager.default.createDirectory(
+                        at: URL(fileURLWithPath: channelSubscriptions[index].settings.outputDirectory, isDirectory: true),
+                        withIntermediateDirectories: true
+                    )
+                } catch {
+                    channelSubscriptions[index].lastStatus = "Could not create the channel folder"
+                    channelAddError = "Could not create the channel folder: \(error.localizedDescription)"
+                    return
+                }
                 channelSubscriptions[index].knownVideoIDs = Array(probe.videos.map(\.id).prefix(500))
                 channelSubscriptions[index].lastCheckedAt = Date()
                 channelSubscriptions[index].lastStatus = "Ready · watching for new uploads"
@@ -535,12 +557,7 @@ final class AppModel: ObservableObject {
     }
 
     private func normalizedChannelURL(_ value: String) -> String? {
-        let clean = value.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard let components = URLComponents(string: clean),
-              ["http", "https"].contains(components.scheme?.lowercased() ?? ""),
-              let host = components.host?.lowercased(),
-              host == "youtube.com" || host.hasSuffix(".youtube.com") else { return nil }
-        return clean
+        ChannelURLNormalizer.videosURL(from: value)
     }
 
     private func normalizedComparableURL(_ value: String) -> String {
@@ -702,6 +719,34 @@ final class AppModel: ObservableObject {
 
     private static func requiresFFmpeg(_ settings: DownloadSettings) -> Bool {
         settings.mediaMode != .original || settings.embedMetadata || settings.embedThumbnail || settings.embedChapters
+    }
+
+    static func migratedChannelSubscriptions(_ subscriptions: [ChannelSubscription]) -> [ChannelSubscription] {
+        subscriptions.map { original in
+            var subscription = original
+            let normalizedURL = ChannelURLNormalizer.videosURL(from: subscription.channelURL)
+            let containsNonVideoIDs = subscription.knownVideoIDs.contains { !YouTubeVideoID.isValid($0) }
+            let urlChanged = normalizedURL != nil && normalizedURL != subscription.channelURL
+
+            if let normalizedURL { subscription.channelURL = normalizedURL }
+            if urlChanged || containsNonVideoIDs {
+                // Previous versions could interpret the channel root's tab IDs
+                // as videos. Reset to a fresh baseline without queuing anything.
+                subscription.knownVideoIDs = []
+                subscription.lastCheckedAt = nil
+                subscription.lastStatus = "Resetting safely · old uploads will be skipped"
+            }
+
+            if subscription.displayName != "Checking channel…" {
+                subscription.settings.outputDirectory = ChannelOutputFolder.path(
+                    baseDirectory: subscription.settings.outputDirectory,
+                    channelName: subscription.displayName
+                )
+            }
+            subscription.settings.includePlaylist = false
+            subscription.settings.useDownloadArchive = true
+            return subscription
+        }
     }
 
     private func persist<T: Encodable>(_ value: T, key: String) {

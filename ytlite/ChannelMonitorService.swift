@@ -88,18 +88,74 @@ final class ChannelMonitorService {
             ?? "YouTube channel"
         let rawEntries = root["entries"] as? [[String: Any]] ?? []
         let videos = rawEntries.compactMap { entry -> ChannelVideo? in
-            guard let id = entry["id"] as? String, !id.isEmpty else { return nil }
+            guard let id = entry["id"] as? String, YouTubeVideoID.isValid(id) else { return nil }
             let title = (entry["title"] as? String) ?? "YouTube video"
-            let candidate = (entry["webpage_url"] as? String) ?? (entry["url"] as? String)
-            let url = candidate.flatMap { value -> String? in
-                guard let scheme = URL(string: value)?.scheme?.lowercased(), ["http", "https"].contains(scheme) else { return nil }
-                return value
-            }
-                ?? "https://www.youtube.com/watch?v=\(id)"
+            // Never trust a flat-playlist entry URL here. A channel root URL
+            // returns tab entries whose URLs point back to whole playlists.
+            // Building a watch URL from a validated 11-character video ID
+            // makes it impossible for one automatic job to expand to a channel.
+            let url = "https://www.youtube.com/watch?v=\(id)"
             return ChannelVideo(id: id, title: title, url: url)
         }
         guard !videos.isEmpty else { return .failure(ChannelMonitorError.noVideos) }
         return .success(ChannelProbeResult(channelName: name, videos: videos))
+    }
+}
+
+enum YouTubeVideoID {
+    static func isValid(_ value: String) -> Bool {
+        value.range(of: #"^[A-Za-z0-9_-]{11}$"#, options: .regularExpression) != nil
+    }
+}
+
+enum ChannelURLNormalizer {
+    private static let tabNames: Set<String> = [
+        "featured", "videos", "shorts", "streams", "live", "releases", "playlists", "community"
+    ]
+
+    static func videosURL(from value: String) -> String? {
+        let clean = value.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard var components = URLComponents(string: clean),
+              ["http", "https"].contains(components.scheme?.lowercased() ?? ""),
+              let host = components.host?.lowercased(),
+              host == "youtube.com" || host.hasSuffix(".youtube.com") else { return nil }
+
+        var parts = components.path.split(separator: "/").map(String.init)
+        guard !parts.isEmpty else { return nil }
+        let isHandle = parts[0].hasPrefix("@") && parts[0].count > 1
+        let isNamedChannel = ["channel", "c", "user"].contains(parts[0].lowercased()) && parts.count >= 2
+        guard isHandle || isNamedChannel else { return nil }
+
+        if let last = parts.last?.lowercased(), tabNames.contains(last) {
+            parts[parts.count - 1] = "videos"
+        } else {
+            parts.append("videos")
+        }
+        components.scheme = "https"
+        components.path = "/" + parts.joined(separator: "/")
+        components.query = nil
+        components.fragment = nil
+        return components.url?.absoluteString
+    }
+}
+
+enum ChannelOutputFolder {
+    static func safeName(for displayName: String) -> String {
+        var name = displayName
+            .replacingOccurrences(of: #"[/:\\]"#, with: " ", options: .regularExpression)
+            .replacingOccurrences(of: #"\s+"#, with: " ", options: .regularExpression)
+            .trimmingCharacters(in: .whitespacesAndNewlines.union(CharacterSet(charactersIn: ".")))
+        if name.isEmpty || name == "Checking channel…" { name = "YouTube Channel" }
+        return String(name.prefix(100))
+    }
+
+    static func path(baseDirectory: String, channelName: String) -> String {
+        let folder = safeName(for: channelName)
+        let base = URL(fileURLWithPath: baseDirectory, isDirectory: true)
+        if base.lastPathComponent.caseInsensitiveCompare(folder) == .orderedSame {
+            return base.path
+        }
+        return base.appendingPathComponent(folder, isDirectory: true).path
     }
 }
 

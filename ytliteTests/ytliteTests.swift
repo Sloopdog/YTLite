@@ -113,14 +113,86 @@ final class YTLiteTests: XCTestCase {
     }
 
     func testChannelProbeParsesFlatPlaylistEntries() throws {
-        let json = #"{"channel":"Example Creator","entries":[{"id":"abc123","title":"Fresh upload","url":"https://www.youtube.com/watch?v=abc123"}]}"#
+        let json = #"{"channel":"Example Creator","entries":[{"id":"abc123DEF_-","title":"Fresh upload","url":"https://www.youtube.com/watch?v=abc123DEF_-"}]}"#
         let result = ChannelMonitorService.parse(Data(json.utf8))
         switch result {
         case let .success(probe):
             XCTAssertEqual(probe.channelName, "Example Creator")
-            XCTAssertEqual(probe.videos, [ChannelVideo(id: "abc123", title: "Fresh upload", url: "https://www.youtube.com/watch?v=abc123")])
+            XCTAssertEqual(probe.videos, [ChannelVideo(id: "abc123DEF_-", title: "Fresh upload", url: "https://www.youtube.com/watch?v=abc123DEF_-")])
         case let .failure(error):
             XCTFail(error.localizedDescription)
         }
+    }
+
+    func testChannelRootIsForcedToVideosTab() {
+        XCTAssertEqual(
+            ChannelURLNormalizer.videosURL(from: "https://www.youtube.com/@drae"),
+            "https://www.youtube.com/@drae/videos"
+        )
+        XCTAssertEqual(
+            ChannelURLNormalizer.videosURL(from: "https://youtube.com/@drae/shorts?view=0"),
+            "https://youtube.com/@drae/videos"
+        )
+        XCTAssertNil(ChannelURLNormalizer.videosURL(from: "https://www.youtube.com/watch?v=abc123DEF_-"))
+    }
+
+    func testChannelTabEntriesCanNeverBecomeDownloadJobs() {
+        let json = #"{"channel":"Drae","entries":[{"id":"UCf2ocK7dG_WFUgtDtrKR4rw","title":"Drae - Videos","url":"https://www.youtube.com/@drae/videos"}]}"#
+        guard case .failure = ChannelMonitorService.parse(Data(json.utf8)) else {
+            return XCTFail("A channel tab must not be accepted as a video")
+        }
+    }
+
+    func testChannelOutputFolderIsSafeAndSpecific() {
+        XCTAssertEqual(
+            ChannelOutputFolder.path(baseDirectory: "/Users/test/Downloads", channelName: "Drae"),
+            "/Users/test/Downloads/Drae"
+        )
+        XCTAssertEqual(ChannelOutputFolder.safeName(for: "Creator / Archive"), "Creator Archive")
+    }
+
+    @MainActor
+    func testBrokenLegacyChannelIsResetToBaselineAndMovedToItsFolder() {
+        var settings = DownloadSettings.standard
+        settings.outputDirectory = "/Users/test/Downloads"
+        var subscription = ChannelSubscription(
+            channelURL: "https://www.youtube.com/@drae",
+            displayName: "Drae",
+            interval: .hourly,
+            maxDownloadsPerCheck: 3,
+            settings: settings
+        )
+        subscription.knownVideoIDs = ["UCf2ocK7dG_WFUgtDtrKR4rw"]
+        subscription.lastCheckedAt = Date()
+
+        let migrated = AppModel.migratedChannelSubscriptions([subscription])[0]
+        XCTAssertEqual(migrated.channelURL, "https://www.youtube.com/@drae/videos")
+        XCTAssertEqual(migrated.knownVideoIDs, [])
+        XCTAssertNil(migrated.lastCheckedAt)
+        XCTAssertEqual(migrated.settings.outputDirectory, "/Users/test/Downloads/Drae")
+        XCTAssertFalse(migrated.settings.includePlaylist)
+        XCTAssertTrue(migrated.settings.useDownloadArchive)
+    }
+
+    func test1080pMP4PrioritizesResolutionBeforeCodec() {
+        var settings = DownloadSettings.standard
+        settings.mediaMode = .video
+        settings.videoQuality = .fullHD
+        settings.videoContainer = .mp4
+        let plan = ArgumentCompiler.makePlan(
+            url: "https://www.youtube.com/watch?v=abc123DEF_-",
+            settings: settings,
+            preferences: ToolPreferences(),
+            ffmpegPath: "/opt/homebrew/bin/ffmpeg",
+            catalog: .empty,
+            selections: [:],
+            customArguments: ""
+        )
+        let formatIndex = try? XCTUnwrap(plan.arguments.firstIndex(of: "--format"))
+        let sortIndex = try? XCTUnwrap(plan.arguments.firstIndex(of: "--format-sort"))
+        XCTAssertNotNil(formatIndex)
+        XCTAssertNotNil(sortIndex)
+        if let formatIndex { XCTAssertTrue(plan.arguments[formatIndex + 1].contains("height<=1080")) }
+        if let sortIndex { XCTAssertTrue(plan.arguments[sortIndex + 1].hasPrefix("res,")) }
     }
 }

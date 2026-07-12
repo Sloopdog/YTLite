@@ -155,7 +155,7 @@ struct SettingsView: View {
                         SectionTitle("About YTLite", icon: "heart.fill")
                         HStack {
                             VStack(alignment: .leading, spacing: 4) {
-                                Text("YTLite 1.1").font(.headline)
+                                Text("YTLite 1.1.1").font(.headline)
                                 Text("Native macOS interface · \(model.catalog.optionCount) yt-dlp options · catalog \(model.catalog.ytDlpVersion)")
                                     .font(.caption).foregroundStyle(.secondary)
                             }
