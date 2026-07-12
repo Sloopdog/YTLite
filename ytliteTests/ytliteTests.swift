@@ -165,11 +165,14 @@ final class YTLiteTests: XCTestCase {
         subscription.knownVideoIDs = ["UCf2ocK7dG_WFUgtDtrKR4rw"]
         subscription.lastCheckedAt = Date()
 
-        let migrated = AppModel.migratedChannelSubscriptions([subscription])[0]
+        let migrated = AppModel.migratedChannelSubscriptions(
+            [subscription],
+            defaultOutputDirectory: "/Users/test/Chosen Folder"
+        )[0]
         XCTAssertEqual(migrated.channelURL, "https://www.youtube.com/@drae/videos")
         XCTAssertEqual(migrated.knownVideoIDs, [])
         XCTAssertNil(migrated.lastCheckedAt)
-        XCTAssertEqual(migrated.settings.outputDirectory, "/Users/test/Downloads/Drae")
+        XCTAssertEqual(migrated.settings.outputDirectory, "/Users/test/Chosen Folder/Drae")
         XCTAssertFalse(migrated.settings.includePlaylist)
         XCTAssertTrue(migrated.settings.useDownloadArchive)
     }

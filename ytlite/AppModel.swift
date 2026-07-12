@@ -40,7 +40,8 @@ final class AppModel: ObservableObject {
     private var terminationObserver: NSObjectProtocol?
 
     init() {
-        settings = Self.restore(DownloadSettings.self, key: Keys.settings) ?? .standard
+        let restoredSettings = Self.restore(DownloadSettings.self, key: Keys.settings) ?? .standard
+        settings = restoredSettings
         preferences = Self.restore(ToolPreferences.self, key: Keys.preferences) ?? ToolPreferences()
         advancedSelections = Self.restore([String: AdvancedSelection].self, key: Keys.advanced) ?? [:]
         // Raw arguments can contain credentials or tokens, so they intentionally
@@ -48,7 +49,10 @@ final class AppModel: ObservableObject {
         customArguments = ""
         presets = Self.restore([CustomPreset].self, key: Keys.presets) ?? []
         let restoredChannels = Self.restore([ChannelSubscription].self, key: Keys.channels) ?? []
-        channelSubscriptions = Self.migratedChannelSubscriptions(restoredChannels)
+        channelSubscriptions = Self.migratedChannelSubscriptions(
+            restoredChannels,
+            defaultOutputDirectory: restoredSettings.outputDirectory
+        )
 
         var restoredJobs = Self.restore([DownloadJob].self, key: Keys.jobs) ?? []
         for index in restoredJobs.indices where [.running, .postprocessing].contains(restoredJobs[index].state) {
@@ -218,6 +222,16 @@ final class AppModel: ObservableObject {
         panel.directoryURL = URL(fileURLWithPath: settings.outputDirectory)
         guard panel.runModal() == .OK, let url = panel.url else { return }
         settings.outputDirectory = url.path
+        for index in channelSubscriptions.indices {
+            channelSubscriptions[index].settings.outputDirectory = ChannelOutputFolder.path(
+                baseDirectory: url.path,
+                channelName: channelSubscriptions[index].displayName
+            )
+            try? FileManager.default.createDirectory(
+                at: URL(fileURLWithPath: channelSubscriptions[index].settings.outputDirectory, isDirectory: true),
+                withIntermediateDirectories: true
+            )
+        }
     }
 
     func openOutputFolder() {
@@ -721,7 +735,10 @@ final class AppModel: ObservableObject {
         settings.mediaMode != .original || settings.embedMetadata || settings.embedThumbnail || settings.embedChapters
     }
 
-    static func migratedChannelSubscriptions(_ subscriptions: [ChannelSubscription]) -> [ChannelSubscription] {
+    static func migratedChannelSubscriptions(
+        _ subscriptions: [ChannelSubscription],
+        defaultOutputDirectory: String
+    ) -> [ChannelSubscription] {
         subscriptions.map { original in
             var subscription = original
             let normalizedURL = ChannelURLNormalizer.videosURL(from: subscription.channelURL)
@@ -739,7 +756,7 @@ final class AppModel: ObservableObject {
 
             if subscription.displayName != "Checking channel…" {
                 subscription.settings.outputDirectory = ChannelOutputFolder.path(
-                    baseDirectory: subscription.settings.outputDirectory,
+                    baseDirectory: defaultOutputDirectory,
                     channelName: subscription.displayName
                 )
             }
