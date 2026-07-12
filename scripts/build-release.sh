@@ -2,11 +2,17 @@
 set -euo pipefail
 
 ROOT="${0:A:h:h}"
-DERIVED_DATA="$ROOT/DerivedData-Release"
+DERIVED_DATA="$ROOT/DerivedData-Release.noindex"
 DIST="$ROOT/dist"
-APP="$DIST/YTLite.app"
+APP_DIR="$DIST/build.noindex"
+APP="$APP_DIR/YTLite.app"
 
 cd "$ROOT"
+
+# Build products are disposable development copies, not installed apps. Keep
+# Spotlight from presenting them alongside /Applications/YTLite.app.
+mkdir -p "$DERIVED_DATA" "$APP_DIR"
+touch "$DERIVED_DATA/.metadata_never_index" "$APP_DIR/.metadata_never_index"
 
 if ! command -v xcodegen >/dev/null 2>&1; then
   print -u2 "XcodeGen is required. Install it with: brew install xcodegen"
@@ -24,8 +30,7 @@ xcodebuild \
   CODE_SIGNING_ALLOWED=NO \
   clean build
 
-mkdir -p "$DIST"
-rm -rf "$APP"
+rm -rf "$DIST/YTLite.app" "$APP"
 ditto --norsrc "$DERIVED_DATA/Build/Products/Release/YTLite.app" "$APP"
 codesign --force --sign - --timestamp=none "$APP"
 codesign --verify --strict --verbose=2 "$APP"

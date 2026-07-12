@@ -54,8 +54,9 @@ The app and universal zip are written to `dist/`. For development:
 
 ```sh
 xcodegen generate
+mkdir -p DerivedData.noindex && touch DerivedData.noindex/.metadata_never_index
 xcodebuild -project YTLite.xcodeproj -scheme YTLite \
-  -derivedDataPath DerivedData CODE_SIGNING_ALLOWED=NO test
+  -derivedDataPath DerivedData.noindex CODE_SIGNING_ALLOWED=NO test
 ```
 
 See [scripts/README.md](scripts/README.md) for the checksum-verified option-catalog workflow.
